@@ -759,6 +759,23 @@ class Solution {
     }
 }
 ```
+#### 代码优化
+上述代码中，为了表示sum这个值是否对result有增益，所以做了条件判断。但是从另一个角度看，条件判断的过程就是判断当前元素加上sum值后是否有增益，如果没有，那么sum就需要重新初始化。所以只要比较当前元素和sum的大小，取大的就可以了。
+```java
+class Solution {
+    public int maxSubArray(int[] nums) {
+        int result = nums[0];
+        int sum = 0;
+        for (int num: nums) {
+            sum = Math.max(num, sum + num);
+            result = Math.max(result, sum);
+        }
+
+        return result;
+    }
+}
+```
+时间和空间都没有明显优化，但是代码变的干净且更加易于理解了。
 ### 解法二
 #### 思路
 

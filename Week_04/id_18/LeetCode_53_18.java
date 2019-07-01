@@ -19,4 +19,15 @@ public class LeetCode_53_18 {
 
         return result;
     }
+
+    public int maxSubArray1(int[] nums) {
+        int result = nums[0];
+        int sum = nums[0];
+        for (int num: nums) {
+            sum = Math.max(num, sum + num);
+            result = Math.max(result, sum);
+        }
+
+        return result;
+    }
 }
